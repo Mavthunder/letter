@@ -1,20 +1,25 @@
-```html id="finalsoundcode1"
+```html id="finaldesign1"
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For You ❤️</title>
+
+<!-- ✨ CLEAN FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 body {
     margin: 0;
-    font-family: 'Comic Sans MS', cursive;
+    font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #ffc0cb, #ff69b4);
     overflow: hidden;
     text-align: center;
     color: white;
 }
 
+/* CONTAINER */
 .container {
     display: flex;
     flex-direction: column;
@@ -23,12 +28,14 @@ body {
     min-height: 100vh;
 }
 
+/* QUESTION */
 #question {
-    font-size: 2.3em;
+    font-size: 2.2em;
     margin-bottom: 20px;
     text-shadow: 0 0 6px #fff, 0 0 12px #ff69b4;
 }
 
+/* BUTTONS */
 .btn {
     padding: 12px 25px;
     margin: 10px;
@@ -36,6 +43,7 @@ body {
     border-radius: 25px;
     cursor: pointer;
     transition: 0.3s;
+    font-size: 15px;
 }
 
 .yes {
@@ -43,29 +51,61 @@ body {
     color: white;
 }
 
-/* LETTER */
+/* 💌 LETTER (REDESIGNED) */
 .letter {
+    width: 90%;
     max-width: 600px;
     max-height: 70vh;
     overflow-y: auto;
-    background: rgba(255,255,255,0.2);
-    padding: 30px;
+
+    background: rgba(255,255,255,0.18);
+    padding: 25px;
     border-radius: 20px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
+
     position: relative;
     z-index: 10;
-    margin: 40px 0;
+    margin: 30px auto;
+
+    text-align: left;
+    line-height: 1.7;
+    font-size: 16px;
 }
 
-/* MOBILE FIX */
+/* ✨ TITLE */
+.letter h1 {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-shadow: 0 0 8px #fff, 0 0 18px #ff69b4;
+}
+
+/* ✨ TEXT */
+.letter p {
+    margin: 0;
+    letter-spacing: 0.3px;
+}
+
+/* 📱 MOBILE */
 @media (max-width: 768px) {
     .letter {
-        max-height: 60vh;
-        margin: 70px 0;
+        width: 95%;
+        max-height: 75vh;
         padding: 20px;
+    }
+
+    #question {
+        font-size: 1.7em;
+        padding: 0 10px;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 10px 18px;
     }
 }
 
+/* HINT BOX */
 .hintBox {
     margin-top: 20px;
     padding: 15px;
@@ -74,7 +114,7 @@ body {
     display: none;
 }
 
-/* HEART */
+/* 💞 HEARTS */
 .img-heart {
     position: absolute;
     z-index: 1;
@@ -82,7 +122,7 @@ body {
     animation: floatUpFade linear forwards;
 }
 
-/* CONFETTI */
+/* 🎉 CONFETTI */
 .confetti {
     position: absolute;
     width: 8px;
@@ -91,6 +131,7 @@ body {
     z-index: 5;
 }
 
+/* ANIMATIONS */
 @keyframes floatUpFade {
     0% { transform: translateY(110vh); opacity: 0; }
     10% { opacity: 1; }
@@ -110,8 +151,8 @@ body {
 
 <body>
 
-<!-- 🎧 SOUND -->
-<audio id="suspenseSound" src="https://assets.mixkit.co/sfx/preview/mixkit-suspense-music-note-622.mp3" preload="auto"></audio>
+<!-- SOUND -->
+<audio id="suspenseSound" src="https://assets.mixkit.co/sfx/preview/mixkit-suspense-music-note-622.mp3"></audio>
 
 <div class="container" id="quiz">
     <h1 id="question"></h1>
@@ -124,8 +165,9 @@ body {
 <div class="container hidden" id="letterContainer">
     <div class="letter">
         <h1>💌 My Fatso Beto</h1>
+
         <p>
-So bete first of all jisse phale ma apni payar bhari baatein and motivational speech start karu usse phale dha se bhi jayada dha wala happiest birthday meri payari beto 🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳 happy 23rd(budhi ho gayi h) birthday to the most cuddleable peice on earth to the one jisko meri raant suune ma expertise ha to the one jo meri motivation he mujhe dena jaanti h to the one jo trivandrum ki garmi ko tolerate karwati h to the one jo hamesha tough time ma bhi bright future ki baat karti h to the one jo most importantly baat smjhe ya nahi(like most of the times)but sunti jaarur ha ese toh to the one bolte bolte toh ma pura paragraph likh skta h but eek to the one jo sabse important ha woh h to the one i loved the most(probably😅) 365*24*7 loving all day everyday not even a single second jisme payar na aaye (ofc ladai hata do) but i love you dha dha dha dha dha dha dha dha dha dha dha dha much 🥳🥳🥳🥳🥳🥳🥳🥳🥳🤤🤤😘🤤🤤😙😘😙🤤😙🤤😙😙🤤😙🤤😙🤤😙😘😙🤤😙🤤😙🤤😙😘😙🤤😙😙🤤😙😘😙😘😙🤤😙🤤😙🤤😙🤤😙😘😙🤤😙🤤😙😙🤤😙🤤😙🤤😙🤤😙🤤😙🤤😙🤤😙🤤😙🤤😙🤤😙🤤😙😙😘😙🤤😙🤤😙🤤😙😘😙now changing a tone a bit abb pata h mujhe ki tu 23 saal ki budhi ho gayi h tere uppar 2 attemps ka pressure aa he gaya h but babe ma terko eek he chiz bolunga bss ki kuch log fail hota h kyuki unka dimag capable ni hota kuch log fail hota h kyuki woh intelligent ni hota but babe tu chaye maan ya na maan tu merko bolti rheti h ki tu upsc de tu nikal lega but mujhe pata h ki mere ma itna guuda bhi ni h ki ma yeh chiz imagine bhi kar pau babe tere case ma the only thing that is limitng you is you and only you...
+So bete first of all jisse phale ma apni payar bhari baatein and motivational speech start karu usse phale dha se bhi jayada dha wala happiest birthday meri payari beto 🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳 happy 23rd(budhi ho gayi h) birthday to the most cuddleable peice on earth...
         </p>
 
         <button id="giftBtn" class="btn yes hidden">🎁 Here are hints to chotu motu gifts</button>
@@ -140,22 +182,7 @@ So bete first of all jisse phale ma apni payar bhari baatein and motivational sp
 let step = 0;
 let giftClicks = 0;
 let nextClicks = 0;
-let soundUnlocked = false;
 
-const sound = document.getElementById("suspenseSound");
-
-/* 🔓 UNLOCK SOUND */
-document.addEventListener("click", () => {
-    if (!soundUnlocked) {
-        sound.play().then(() => {
-            sound.pause();
-            sound.currentTime = 0;
-            soundUnlocked = true;
-        }).catch(() => {});
-    }
-});
-
-/* QUESTIONS */
 const questions = [
     "Are you ready for something adorable? 😏",
     "Do you promise not to judge me? 👀",
@@ -204,41 +231,30 @@ function showLetter() {
     });
 }
 
-/* 💞 HEARTS */
+/* HEARTS */
 function createHearts() {
     setInterval(() => {
         let heart = document.createElement("div");
         heart.className = "img-heart";
 
-        let type = Math.random();
-
-        if (type < 0.5) {
-            heart.style.width = "60px";
-            heart.style.height = "60px";
-        } else if (type < 0.8) {
-            heart.style.width = "90px";
-            heart.style.height = "90px";
-        } else {
-            heart.style.width = "140px";
-            heart.style.height = "140px";
-        }
+        let size = Math.random() < 0.8 ? 80 : 140;
+        heart.style.width = size + "px";
+        heart.style.height = size + "px";
 
         heart.style.left = Math.random() * 100 + "vw";
         heart.style.animationDuration = (Math.random() * 3 + 6) + "s";
-        heart.style.opacity = 0.7 + Math.random() * 0.3;
 
         document.body.appendChild(heart);
         setTimeout(() => heart.remove(), 10000);
     }, 400);
 }
 
-/* 🎉 CONFETTI */
+/* CONFETTI */
 function createConfetti() {
-    for (let i = 0; i < 120; i++) {
+    for (let i = 0; i < 100; i++) {
         let conf = document.createElement("div");
         conf.className = "confetti";
         conf.style.left = Math.random() * 100 + "vw";
-        conf.style.top = "-10px";
         conf.style.background = `hsl(${Math.random()*360},100%,75%)`;
         conf.style.animationDuration = (Math.random() * 3 + 2) + "s";
 
@@ -247,69 +263,32 @@ function createConfetti() {
     }
 }
 
-/* 🎧 SOUND FUNCTION */
-function playSuspense(callback) {
-    sound.currentTime = 0;
-
-    let playPromise = sound.play();
-
-    if (playPromise !== undefined) {
-        playPromise.then(() => {
-            setTimeout(() => callback(), 1200);
-        }).catch(() => {
-            callback();
-        });
-    } else {
-        callback();
-    }
-}
-
-/* 🎁 FIRST BUTTON */
-document.getElementById("giftBtn").addEventListener("click", function() {
+/* GIFT LOGIC */
+document.getElementById("giftBtn").onclick = function() {
     giftClicks++;
-
     if (giftClicks < 3) {
-        const x = (Math.random() - 0.5) * 80;
-        const y = (Math.random() - 0.5) * 50;
-        this.style.transform = `translate(${x}px, ${y}px)`;
+        this.style.transform = `translate(${(Math.random()-0.5)*80}px, ${(Math.random()-0.5)*50}px)`;
     } else {
-        playSuspense(showHint1);
+        showHint1();
     }
-});
+};
 
-/* 👀 SECOND BUTTON */
-document.getElementById("nextGiftBtn").addEventListener("click", function() {
+document.getElementById("nextGiftBtn").onclick = function() {
     nextClicks++;
-
     if (nextClicks < 3) {
-        const x = (Math.random() - 0.5) * 80;
-        const y = (Math.random() - 0.5) * 50;
-        this.style.transform = `translate(${x}px, ${y}px)`;
+        this.style.transform = `translate(${(Math.random()-0.5)*80}px, ${(Math.random()-0.5)*50}px)`;
     } else {
-        playSuspense(showHint2);
+        showHint2();
     }
-});
+};
 
-/* HINTS */
 function showHint1() {
     document.getElementById("hintBox1").style.display = "block";
-    document.getElementById("hintBox1").innerHTML = `
-        🌸 It looks like a flower… but it never fades<br><br>
-        🧵 Made from something soft… not grown in soil<br><br>
-        🎀 It stays forever… just like this moment<br><br>
-        💖 Aesthetic… delicate… handmade with love
-    `;
     document.getElementById("nextGiftBtn").classList.remove("hidden");
 }
 
 function showHint2() {
     document.getElementById("hintBox2").style.display = "block";
-    document.getElementById("hintBox2").innerHTML = `
-        🖼️ Something that holds a memory… not just shows it<br><br>
-        🎞️ Not just a photo… but a little alive moment<br><br>
-        💕 Cute, animated… something that feels like us<br><br>
-        🤫 Maybe not always visible… but always yours
-    `;
 }
 </script>
 
