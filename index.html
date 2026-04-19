@@ -1,4 +1,4 @@
-```html id="finaldesign1"
+```html id="finalcode_no"
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For You ❤️</title>
 
-<!-- ✨ CLEAN FONT -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -19,7 +18,6 @@ body {
     color: white;
 }
 
-/* CONTAINER */
 .container {
     display: flex;
     flex-direction: column;
@@ -28,21 +26,19 @@ body {
     min-height: 100vh;
 }
 
-/* QUESTION */
 #question {
     font-size: 2.2em;
     margin-bottom: 20px;
     text-shadow: 0 0 6px #fff, 0 0 12px #ff69b4;
 }
 
-/* BUTTONS */
 .btn {
     padding: 12px 25px;
     margin: 10px;
     border: none;
     border-radius: 25px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.25s ease;
     font-size: 15px;
 }
 
@@ -51,61 +47,37 @@ body {
     color: white;
 }
 
-/* 💌 LETTER (REDESIGNED) */
+/* LETTER */
 .letter {
     width: 90%;
     max-width: 600px;
     max-height: 70vh;
     overflow-y: auto;
-
     background: rgba(255,255,255,0.18);
     padding: 25px;
     border-radius: 20px;
     backdrop-filter: blur(12px);
-
     position: relative;
     z-index: 10;
     margin: 30px auto;
-
     text-align: left;
     line-height: 1.7;
     font-size: 16px;
 }
 
-/* ✨ TITLE */
 .letter h1 {
     text-align: center;
-    font-weight: 600;
     margin-bottom: 15px;
-    text-shadow: 0 0 8px #fff, 0 0 18px #ff69b4;
 }
 
-/* ✨ TEXT */
-.letter p {
-    margin: 0;
-    letter-spacing: 0.3px;
-}
-
-/* 📱 MOBILE */
 @media (max-width: 768px) {
     .letter {
         width: 95%;
         max-height: 75vh;
         padding: 20px;
     }
-
-    #question {
-        font-size: 1.7em;
-        padding: 0 10px;
-    }
-
-    .btn {
-        font-size: 14px;
-        padding: 10px 18px;
-    }
 }
 
-/* HINT BOX */
 .hintBox {
     margin-top: 20px;
     padding: 15px;
@@ -114,7 +86,7 @@ body {
     display: none;
 }
 
-/* 💞 HEARTS */
+/* HEART */
 .img-heart {
     position: absolute;
     z-index: 1;
@@ -122,16 +94,13 @@ body {
     animation: floatUpFade linear forwards;
 }
 
-/* 🎉 CONFETTI */
 .confetti {
     position: absolute;
     width: 8px;
     height: 8px;
     animation: fall linear forwards;
-    z-index: 5;
 }
 
-/* ANIMATIONS */
 @keyframes floatUpFade {
     0% { transform: translateY(110vh); opacity: 0; }
     10% { opacity: 1; }
@@ -151,9 +120,6 @@ body {
 
 <body>
 
-<!-- SOUND -->
-<audio id="suspenseSound" src="https://assets.mixkit.co/sfx/preview/mixkit-suspense-music-note-622.mp3"></audio>
-
 <div class="container" id="quiz">
     <h1 id="question"></h1>
     <div>
@@ -167,7 +133,7 @@ body {
         <h1>💌 My Fatso Beto</h1>
 
         <p>
-So bete first of all jisse phale ma apni payar bhari baatein and motivational speech start karu usse phale dha se bhi jayada dha wala happiest birthday meri payari beto 🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳 happy 23rd(budhi ho gayi h) birthday to the most cuddleable peice on earth...
+So bete first of all jisse phale ma apni payar bhari baatein start karu usse phale happiest birthday meri payari beto 🥳🥳🥳... (your full message here)
         </p>
 
         <button id="giftBtn" class="btn yes hidden">🎁 Here are hints to chotu motu gifts</button>
@@ -194,12 +160,23 @@ window.onload = () => {
     document.getElementById("question").innerText = questions[0];
 };
 
-/* NO BUTTON */
-document.getElementById("noBtn").addEventListener("mouseover", function() {
-    const x = (Math.random() - 0.5) * 120;
-    const y = (Math.random() - 0.5) * 80;
-    this.style.transform = `translate(${x}px, ${y}px)`;
-});
+/* 😈 NO BUTTON (INFINITE DODGE) */
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseover", moveNo);
+noBtn.addEventListener("click", moveNo);
+
+function moveNo() {
+    const maxX = window.innerWidth - noBtn.offsetWidth;
+    const maxY = window.innerHeight - noBtn.offsetHeight;
+
+    const x = Math.random() * maxX * 0.6;
+    const y = Math.random() * maxY * 0.4;
+
+    noBtn.style.position = "absolute";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
 
 /* YES FLOW */
 function answer(isYes) {
@@ -263,7 +240,7 @@ function createConfetti() {
     }
 }
 
-/* GIFT LOGIC */
+/* GIFT BUTTONS */
 document.getElementById("giftBtn").onclick = function() {
     giftClicks++;
     if (giftClicks < 3) {
