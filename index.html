@@ -1,4 +1,4 @@
-```html id="finaltruecode"
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +13,7 @@ body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #ffc0cb, #ff69b4);
-    overflow: hidden;
+    overflow-x: hidden;
     text-align: center;
     color: white;
 }
@@ -25,6 +25,13 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+}
+
+/* 🧠 THIS FIXES THE ISSUE */
+.container.scroll-mode {
+    justify-content: flex-start;
+    padding-top: 80px;
+    padding-bottom: 120px;
 }
 
 /* QUESTION */
@@ -48,30 +55,31 @@ body {
     color: white;
 }
 
-/* 💌 LETTER (FIXED HEIGHT + SPACING) */
+/* 💌 LETTER (NO FORCED HEIGHT NOW) */
 .letter {
-    width: 90%;
+    width: 92%;
     max-width: 600px;
-    max-height: 65vh;
-    overflow-y: auto;
 
     background: rgba(255,255,255,0.18);
     padding: 22px;
     border-radius: 20px;
     backdrop-filter: blur(12px);
 
-    margin: 50px auto;
+    margin: 40px auto;
 
     text-align: left;
     line-height: 1.7;
 }
 
-/* 📱 MOBILE FIX */
+/* 📱 MOBILE */
 @media (max-width: 768px) {
+    .container.scroll-mode {
+        padding-top: 60px;
+        padding-bottom: 120px;
+    }
+
     .letter {
         width: 94%;
-        max-height: 60vh;
-        margin: 80px auto;
         padding: 18px;
     }
 }
@@ -87,7 +95,7 @@ body {
 
 /* HEART */
 .img-heart {
-    position: absolute;
+    position: fixed;
     z-index: 1;
     background: url('https://raw.githubusercontent.com/Mavthunder/letter/main/yrfinal.png') center/contain no-repeat;
     animation: floatUpFade linear forwards;
@@ -95,7 +103,7 @@ body {
 
 /* CONFETTI */
 .confetti {
-    position: absolute;
+    position: fixed;
     width: 8px;
     height: 8px;
     animation: fall linear forwards;
@@ -163,18 +171,15 @@ window.onload = () => {
     document.getElementById("question").innerText = questions[0];
 };
 
-/* 😈 NO BUTTON (INFINITE MOVE) */
+/* 😈 NO BUTTON */
 const noBtn = document.getElementById("noBtn");
 
 noBtn.addEventListener("mouseover", moveNo);
 noBtn.addEventListener("click", moveNo);
 
 function moveNo() {
-    const maxX = window.innerWidth - noBtn.offsetWidth;
-    const maxY = window.innerHeight - noBtn.offsetHeight;
-
-    const x = Math.random() * maxX * 0.6;
-    const y = Math.random() * maxY * 0.4;
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
 
     noBtn.style.position = "absolute";
     noBtn.style.left = x + "px";
@@ -197,21 +202,25 @@ function answer(isYes) {
 
 function showLetter() {
     document.getElementById("quiz").classList.add("hidden");
-    document.getElementById("letterContainer").classList.remove("hidden");
+
+    const container = document.getElementById("letterContainer");
+    container.classList.remove("hidden");
+
+    /* 🔥 KEY FIX */
+    container.classList.add("scroll-mode");
 
     createHearts();
 
-    const letter = document.querySelector(".letter");
     const giftBtn = document.getElementById("giftBtn");
 
-    letter.addEventListener("scroll", () => {
-        if (letter.scrollTop + letter.clientHeight >= letter.scrollHeight - 5) {
+    window.addEventListener("scroll", () => {
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 10) {
             giftBtn.classList.remove("hidden");
         }
     });
 }
 
-/* 💞 HEARTS */
+/* HEARTS */
 function createHearts() {
     setInterval(() => {
         let heart = document.createElement("div");
@@ -229,7 +238,7 @@ function createHearts() {
     }, 400);
 }
 
-/* 🎉 CONFETTI */
+/* CONFETTI */
 function createConfetti() {
     for (let i = 0; i < 100; i++) {
         let conf = document.createElement("div");
@@ -243,7 +252,7 @@ function createConfetti() {
     }
 }
 
-/* 🎁 BUTTON LOGIC */
+/* HINTS */
 document.getElementById("giftBtn").onclick = function() {
     giftClicks++;
     if (giftClicks < 3) {
@@ -262,31 +271,13 @@ document.getElementById("nextGiftBtn").onclick = function() {
     }
 };
 
-/* ✅ FIXED HINTS */
 function showHint1() {
-    const box = document.getElementById("hintBox1");
-
-    box.style.display = "block";
-    box.innerHTML = `
-        🌸 It looks like a flower… but it never fades<br><br>
-        🧵 Made from something soft… not grown in soil<br><br>
-        🎀 It stays forever… just like this moment<br><br>
-        💖 Aesthetic… delicate… handmade with love
-    `;
-
+    document.getElementById("hintBox1").style.display = "block";
     document.getElementById("nextGiftBtn").classList.remove("hidden");
 }
 
 function showHint2() {
-    const box = document.getElementById("hintBox2");
-
-    box.style.display = "block";
-    box.innerHTML = `
-        🖼️ Something that holds a memory… not just shows it<br><br>
-        🎞️ Not just a photo… but a little alive moment<br><br>
-        💕 Cute, animated… something that feels like us<br><br>
-        🤫 Maybe not always visible… but always yours
-    `;
+    document.getElementById("hintBox2").style.display = "block";
 }
 </script>
 
