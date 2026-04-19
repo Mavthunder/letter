@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,16 +22,8 @@ body {
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    min-height: 100vh;
-}
-
-/* 🧠 THIS FIXES THE ISSUE */
-.container.scroll-mode {
-    justify-content: flex-start;
-    padding-top: 80px;
-    padding-bottom: 120px;
+    padding: 80px 0 120px;
 }
 
 /* QUESTION */
@@ -55,55 +47,54 @@ body {
     color: white;
 }
 
-/* 💌 LETTER (NO FORCED HEIGHT NOW) */
+/* 💌 LETTER */
 .letter {
     width: 92%;
     max-width: 600px;
-
     background: rgba(255,255,255,0.18);
     padding: 22px;
     border-radius: 20px;
-    backdrop-filter: blur(12px);
-
-    margin: 40px auto;
-
+    backdrop-filter: blur(10px);
     text-align: left;
-    line-height: 1.7;
+    line-height: 1.6;
+    margin: 40px auto;
+    position: relative;
+    z-index: 10;
 }
 
 /* 📱 MOBILE */
 @media (max-width: 768px) {
-    .container.scroll-mode {
-        padding-top: 60px;
-        padding-bottom: 120px;
-    }
-
     .letter {
         width: 94%;
         padding: 18px;
     }
 }
 
-/* HINT BOX */
+/* 💖 HINT */
 .hintBox {
     margin-top: 20px;
-    padding: 15px;
+    padding: 16px;
     border-radius: 15px;
-    background: rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.25);
     display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
 }
 
-/* HEART */
+/* 💞 HEARTS (BACKGROUND FIXED) */
 .img-heart {
     position: fixed;
-    z-index: 1;
+    z-index: 0;
+    pointer-events: none;
     background: url('https://raw.githubusercontent.com/Mavthunder/letter/main/yrfinal.png') center/contain no-repeat;
     animation: floatUpFade linear forwards;
 }
 
-/* CONFETTI */
+/* 🎉 CONFETTI */
 .confetti {
     position: fixed;
+    z-index: 5;
     width: 8px;
     height: 8px;
     animation: fall linear forwards;
@@ -140,16 +131,14 @@ body {
     <div class="letter">
         <h1>💌 My Fatso Beto</h1>
 
-        <p>
-So bete first of all jisse phale ma apni payar bhari baatein and motivational speech start karu usse phale dha se bhi jayada dha wala happiest birthday meri payari beto 🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳 happy 23rd(budhi ho gayi h) birthday to the most cuddleable peice on earth to the one jisko meri raant suune ma expertise ha to the one jo meri motivation he mujhe dena jaanti h to the one jo trivandrum ki garmi ko tolerate karwati h to the one jo hamesha tough time ma bhi bright future ki baat karti h to the one jo most importantly baat smjhe ya nahi(like most of the times)but sunti jaarur ha ese toh to the one bolte bolte toh ma pura paragraph likh skta h but eek to the one jo sabse important ha woh h to the one i loved the most(probably😅) 365*24*7 loving all day everyday not even a single second jisme payar na aaye (ofc ladai hata do) but i love you dha dha dha dha dha dha dha dha dha dha dha dha much 🥳🥳🥳🥳🥳🥳🥳🥳🥳🤤🤤😘🤤🤤😙😘😙🤤😙🤤😙😙🤤😙🤤😙🤤😙😘😙🤤😙🤤😙🤤😙😘😙🤤😙😙🤤😙😘😙😘😙🤤😙🤤😙🤤😙🤤😙😘😙🤤😙🤤😙😙🤤😙🤤😙🤤😙🤤😙🤤😙🤤😙🤤😙🤤😙🤤😙🤤😙😙😘😙🤤😙🤤😙🤤😙😘😙now changing a tone a bit abb pata h mujhe ki tu 23 saal ki budhi ho gayi h tere uppar 2 attemps ka pressure aa he gaya h but babe ma terko eek he chiz bolunga bss ki kuch log fail hota h kyuki unka dimag capable ni hota kuch log fail hota h kyuki woh intelligent ni hota but babe tu chaye maan ya na maan tu merko bolti rheti h ki tu upsc de tu nikal lega but mujhe pata h ki mere ma itna guuda bhi ni h ki ma yeh chiz imagine bhi kar pau babe tere case ma the only thing that is limitng you is you and only you. Time and again tune apni capabilities proof kari ha aur mujhe pata h ki bhai tu kuch na kuch toh ukhaadegi he life ma aur woh hoga bhi upsc he bss terko apni limit ko todna ha jo kam nahi hota usse karna h jo kam mushkil h usse karna h jo kam sabko mushkil laage woh karke dekhana h taaki logo ko laage ki kya itna easy tha yeh you have toh work so hard under the shade ki sabko laage ki it was that easy aur tu yeh karlegi i know bss terko woh initial barriers paar karna h bss eek baar woh kar phir apna flow state dekgiyo ki kaisa yoga peak YOGITA RAWAT wohi yogita jo 11 ma thi wohi jo 12 ma thi 
+        <p>So bete first of all jisse phale ma apni payar bhari baatein and motivational speech start karu usse phale dha se bhi jayada dha wala happiest birthday meri payari beto 🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳 happy 23rd(budhi ho gayi h) birthday to the most cuddleable peice on earth to the one jisko meri raant suune ma expertise ha to the one jo meri motivation he mujhe dena jaanti h to the one jo trivandrum ki garmi ko tolerate karwati h to the one jo hamesha tough time ma bhi bright future ki baat karti h to the one jo most importantly baat smjhe ya nahi(like most of the times)but sunti jaarur ha ese toh to the one bolte bolte toh ma pura paragraph likh skta h but eek to the one jo sabse important ha woh h to the one i loved the most(probably😅) 365*24*7 loving all day everyday not even a single second jisme payar na aaye (ofc ladai hata do) but i love you dha dha dha dha dha dha dha dha dha dha dha dha much 🥳🥳🥳🥳🥳🥳🥳🥳🥳🤤🤤😘🤤🤤😙😘😙🤤😙🤤😙😙🤤😙🤤😙🤤😙😘😙🤤😙🤤😙🤤😙😘😙🤤😙😙🤤😙😘😙😘😙🤤😙🤤😙🤤😙🤤😙😘😙🤤😙🤤😙😙🤤😙🤤😙🤤😙🤤😙🤤😙🤤😙🤤😙🤤😙🤤😙🤤😙😙😘😙🤤😙🤤😙🤤😙😘😙now changing a tone a bit abb pata h mujhe ki tu 23 saal ki budhi ho gayi h tere uppar 2 attemps ka pressure aa he gaya h but babe ma terko eek he chiz bolunga bss ki kuch log fail hota h kyuki unka dimag capable ni hota kuch log fail hota h kyuki woh intelligent ni hota but babe tu chaye maan ya na maan tu merko bolti rheti h ki tu upsc de tu nikal lega but mujhe pata h ki mere ma itna guuda bhi ni h ki ma yeh chiz imagine bhi kar pau babe tere case ma the only thing that is limitng you is you and only you. Time and again tune apni capabilities proof kari ha aur mujhe pata h ki bhai tu kuch na kuch toh ukhaadegi he life ma aur woh hoga bhi upsc he bss terko apni limit ko todna ha jo kam nahi hota usse karna h jo kam mushkil h usse karna h jo kam sabko mushkil laage woh karke dekhana h taaki logo ko laage ki kya itna easy tha yeh you have toh work so hard under the shade ki sabko laage ki it was that easy aur tu yeh karlegi i know bss terko woh initial barriers paar karna h bss eek baar woh kar phir apna flow state dekgiyo ki kaisa yoga peak YOGITA RAWAT wohi yogita jo 11 ma thi wohi jo 12 ma thi 
 
-yeh year bahut ups and downs se gaya ha iss year bahut saari chize hoi h jo app souchte ki bhai naahi hoti dada ka hospital jana and all but babe merko teri eek chiz toh bhai hamesha itni acchi lagti h ki kya batau woh chiz h teri perseverance(matalb google karo) ki bhai tere sath kuch bhi ho jaye tera positive attitude kahi ni jaata ma manta hu kabhi kabhi tu bhi tut jaati h low pe hoti h roti ha frustated hoti h but phir tu aakr merko batati h hame sought karte h but fight to tu he karto h na ma toh bss call pe bol skta hu tu h jo usko implement karti h tu ha jo usse go thorugh karke end ma success leti h tu bolti rheti h ki ma terko motivate karta hu but fact yeh ha ki ma toh bss eek messenger hu unn baation ka jo already tere andr h tu bhai one of the most Strongest girl h that i have ever seen aur iss chiz ko toh ma jitna appriacte karu utna kam h yeh kabhi mat bhuliyo tune esi esi chize ko overcome kara h ki tere liya apni pdhai ko leke flow state ma aana uss hole se bahar nikalna toh bas eek peice of cake ha kyuki you are that strong aai baat smjh ma aaur inn chizo ko dekh ke mere payar apke liya bss keeps on increasing jab ma bahar hota hu kahi new jagha jaata hu chaye woh darjeling ho ya ma jab trivandrum ma ghum raha hu ma hamesha pahadi gaane sonta hu i dont know why but it makes any new setting feels like home woh tere gaane woh teri playlist is one jo merko inn ghar se dur wale times ma nikalna sikhati ha jab bhi koi bhi tensed situation aati h chaye woh as small as ho ki mere english ka exam accha ni gaya mera dimag eek he question puchta h whats the worst that could happen aur un sabhi answers ma yehi hota h ki i will still have her toh bss phir question ka sawal he paida ni hota chal abb tujhe chod deta hu ese toh ma raant saara din kar skta hu but abb jao enjoy ur birthday the best aur apni capabilities pr kabhi doubt mt karna jis chiz ka sapna dekha h usse achive karo kyuki i know u can do it in the end bete happies birthday to the most cuddleable and the most cutes beba 🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳and the most imp thing i love you sooooo sooooo sooooo sooooo sooooo dha much dha se bhi jayada dha much 🥳😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😘😙😘😙😘😙😙😘😙😘😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😘😙😙😘😙😘😙😘😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘🥳😘🥳😘😙😘🥳🥳😘😘🥳😘🥳😘🥳😘🥳
-        </p>
+yeh year bahut ups and downs se gaya ha iss year bahut saari chize hoi h jo app souchte ki bhai naahi hoti dada ka hospital jana and all but babe merko teri eek chiz toh bhai hamesha itni acchi lagti h ki kya batau woh chiz h teri perseverance(matalb google karo) ki bhai tere sath kuch bhi ho jaye tera positive attitude kahi ni jaata ma manta hu kabhi kabhi tu bhi tut jaati h low pe hoti h roti ha frustated hoti h but phir tu aakr merko batati h hame sought karte h but fight to tu he karto h na ma toh bss call pe bol skta hu tu h jo usko implement karti h tu ha jo usse go thorugh karke end ma success leti h tu bolti rheti h ki ma terko motivate karta hu but fact yeh ha ki ma toh bss eek messenger hu unn baation ka jo already tere andr h tu bhai one of the most Strongest girl h that i have ever seen aur iss chiz ko toh ma jitna appriacte karu utna kam h yeh kabhi mat bhuliyo tune esi esi chize ko overcome kara h ki tere liya apni pdhai ko leke flow state ma aana uss hole se bahar nikalna toh bas eek peice of cake ha kyuki you are that strong aai baat smjh ma aaur inn chizo ko dekh ke mere payar apke liya bss keeps on increasing jab ma bahar hota hu kahi new jagha jaata hu chaye woh darjeling ho ya ma jab trivandrum ma ghum raha hu ma hamesha pahadi gaane sonta hu i dont know why but it makes any new setting feels like home woh tere gaane woh teri playlist is one jo merko inn ghar se dur wale times ma nikalna sikhati ha jab bhi koi bhi tensed situation aati h chaye woh as small as ho ki mere english ka exam accha ni gaya mera dimag eek he question puchta h whats the worst that could happen aur un sabhi answers ma yehi hota h ki i will still have her toh bss phir question ka sawal he paida ni hota chal abb tujhe chod deta hu ese toh ma raant saara din kar skta hu but abb jao enjoy ur birthday the best aur apni capabilities pr kabhi doubt mt karna jis chiz ka sapna dekha h usse achive karo kyuki i know u can do it in the end bete happies birthday to the most cuddleable and the most cutes beba 🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳🥳and the most imp thing i love you sooooo sooooo sooooo sooooo sooooo dha much dha se bhi jayada dha much 🥳😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😘😙😘😙😘😙😙😘😙😘😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😘😙😙😘😙😘😙😘😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘😙😘🥳😘🥳😘😙😘🥳🥳😘😘🥳😘🥳😘🥳😘🥳</p>
 
-        <button id="giftBtn" class="btn yes hidden">🎁 Here are hints to chotu motu gifts</button>
+        <button id="giftBtn" class="btn yes hidden">🎁 Here are hints</button>
         <div id="hintBox1" class="hintBox"></div>
 
-        <button id="nextGiftBtn" class="btn yes hidden">👀 Here’s another one</button>
+        <button id="nextGiftBtn" class="btn yes hidden">👀 Another one</button>
         <div id="hintBox2" class="hintBox"></div>
     </div>
 </div>
@@ -171,19 +160,21 @@ window.onload = () => {
     document.getElementById("question").innerText = questions[0];
 };
 
-/* 😈 NO BUTTON */
+/* 😈 NO BUTTON FIX */
 const noBtn = document.getElementById("noBtn");
 
 noBtn.addEventListener("mouseover", moveNo);
 noBtn.addEventListener("click", moveNo);
 
 function moveNo() {
-    const x = Math.random() * (window.innerWidth - 100);
-    const y = Math.random() * (window.innerHeight - 50);
+    const rect = noBtn.getBoundingClientRect();
 
-    noBtn.style.position = "absolute";
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
+    const x = rect.left + (Math.random() - 0.5) * 150;
+    const y = rect.top + (Math.random() - 0.5) * 100;
+
+    noBtn.style.position = "fixed";
+    noBtn.style.left = Math.max(0, Math.min(window.innerWidth - 100, x)) + "px";
+    noBtn.style.top = Math.max(0, Math.min(window.innerHeight - 50, y)) + "px";
 }
 
 /* YES FLOW */
@@ -202,31 +193,24 @@ function answer(isYes) {
 
 function showLetter() {
     document.getElementById("quiz").classList.add("hidden");
-
-    const container = document.getElementById("letterContainer");
-    container.classList.remove("hidden");
-
-    /* 🔥 KEY FIX */
-    container.classList.add("scroll-mode");
+    document.getElementById("letterContainer").classList.remove("hidden");
 
     createHearts();
 
-    const giftBtn = document.getElementById("giftBtn");
-
     window.addEventListener("scroll", () => {
         if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 10) {
-            giftBtn.classList.remove("hidden");
+            document.getElementById("giftBtn").classList.remove("hidden");
         }
     });
 }
 
-/* HEARTS */
+/* 💞 HEARTS */
 function createHearts() {
     setInterval(() => {
         let heart = document.createElement("div");
         heart.className = "img-heart";
 
-        let size = Math.random() < 0.8 ? 80 : 140;
+        let size = Math.random() < 0.8 ? 70 : 130;
         heart.style.width = size + "px";
         heart.style.height = size + "px";
 
@@ -235,12 +219,12 @@ function createHearts() {
 
         document.body.appendChild(heart);
         setTimeout(() => heart.remove(), 10000);
-    }, 400);
+    }, 500);
 }
 
-/* CONFETTI */
+/* 🎉 CONFETTI */
 function createConfetti() {
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 80; i++) {
         let conf = document.createElement("div");
         conf.className = "confetti";
         conf.style.left = Math.random() * 100 + "vw";
@@ -252,32 +236,68 @@ function createConfetti() {
     }
 }
 
-/* HINTS */
-document.getElementById("giftBtn").onclick = function() {
+/* 🎁 BUTTONS */
+document.getElementById("giftBtn").addEventListener("click", function() {
     giftClicks++;
+
     if (giftClicks < 3) {
-        this.style.transform = `translate(${(Math.random()-0.5)*80}px, ${(Math.random()-0.5)*50}px)`;
+        this.style.transform = `translate(${(Math.random()-0.5)*60}px, ${(Math.random()-0.5)*40}px)`;
     } else {
         showHint1();
     }
-};
+});
 
-document.getElementById("nextGiftBtn").onclick = function() {
+document.getElementById("nextGiftBtn").addEventListener("click", function() {
     nextClicks++;
+
     if (nextClicks < 3) {
-        this.style.transform = `translate(${(Math.random()-0.5)*80}px, ${(Math.random()-0.5)*50}px)`;
+        this.style.transform = `translate(${(Math.random()-0.5)*60}px, ${(Math.random()-0.5)*40}px)`;
     } else {
         showHint2();
     }
-};
+});
 
+/* 💖 HINTS */
 function showHint1() {
-    document.getElementById("hintBox1").style.display = "block";
+    const box = document.getElementById("hintBox1");
+
+    box.innerHTML = `
+        🌸 A flower… but it never fades<br><br>
+        🧵 Not grown… but crafted softly<br><br>
+        🎀 Something delicate and aesthetic<br><br>
+        💖 Made to stay… just like this feeling
+    `;
+
+    box.style.display = "block";
+
+    setTimeout(() => {
+        box.style.opacity = "1";
+        box.style.transform = "translateY(0)";
+    }, 50);
+
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
+
     document.getElementById("nextGiftBtn").classList.remove("hidden");
 }
 
 function showHint2() {
-    document.getElementById("hintBox2").style.display = "block";
+    const box = document.getElementById("hintBox2");
+
+    box.innerHTML = `
+        🖼️ A memory… but more alive than a photo<br><br>
+        🎞️ Something that moves… not just sits still<br><br>
+        💕 Feels like us… captured in a moment<br><br>
+        🤫 Maybe hidden… but always yours
+    `;
+
+    box.style.display = "block";
+
+    setTimeout(() => {
+        box.style.opacity = "1";
+        box.style.transform = "translateY(0)";
+    }, 50);
+
+    box.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 </script>
 
